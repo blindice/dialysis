@@ -1,14 +1,17 @@
-import { useAtom } from "jotai";
+import { useAtom } from 'jotai'
+import Button from '@mui/material/Button'
 
-import { userAtom } from "./atoms";
+import { userAtom } from './atoms'
 
 function Logout() {
-  const [, setUser] = useAtom(userAtom);
+  const [, setUser] = useAtom(userAtom)
   return (
     <div>
-      <button onClick={() => setUser("")}>Logout</button>
+      <Button variant="contained" onClick={() => setUser('')} size="small">
+        Logout
+      </Button>
     </div>
-  );
+  )
 }
 
-export default Logout;
+export default Logout

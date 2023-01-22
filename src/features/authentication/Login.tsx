@@ -56,6 +56,7 @@ export const Login = () => {
             variant="outlined"
             size="small"
             style={{ marginBottom: '10px' }}
+            error={errors.username ? true : false}
             {...field}
           />
         )}
@@ -70,6 +71,7 @@ export const Login = () => {
             label="Password"
             variant="outlined"
             size="small"
+            error={errors.password ? true : false}
             style={{ marginBottom: '10px' }}
             {...field}
           />
