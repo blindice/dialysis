@@ -19,15 +19,13 @@ function AddPatient() {
   const mutation = useMutation({ mutationFn: addPatientAsync })
 
   return (
-    <div>
+    <div style={{ paddingLeft: '30%', paddingTop: '10%' }}>
       <form
         onSubmit={handleSubmit((data) => mutation.mutate(data as Patient))}
         style={{
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginTop: '10%',
+          width: '30%',
         }}
       >
         <Controller
@@ -121,12 +119,15 @@ function AddPatient() {
               id="outlined-select-currency"
               select
               label="Gender"
-              defaultValue="male"
-              error={errors.gender ? true : false}
+              defaultValue=""
               size="small"
               style={{ marginBottom: '10px' }}
+              error={errors.gender ? true : false}
               {...field}
             >
+              <MenuItem key="" value="">
+                Select
+              </MenuItem>
               <MenuItem key="male" value="male">
                 Male
               </MenuItem>
@@ -168,7 +169,12 @@ function AddPatient() {
             />
           )}
         />
-        <Button variant="contained" type="submit" size="small">
+        <Button
+          variant="contained"
+          type="submit"
+          onClick={handleSubmit((data) => mutation.mutate(data as Patient))}
+          size="small"
+        >
           Add
         </Button>
       </form>
